@@ -233,7 +233,7 @@ def n_clusters_plda_post_vad_segments(yes_no, embeddings, N, rttmOut=None, filen
 def n_clusters_plda_vad_segments(frame_counts, embeddings, segments, N, rttmOut=None, filename=None, stepSize=0.2, offset=0, print_labels=False, memory=None, vad=None):
     # aggloclust=AgglomerativeClustering(n_clusters=N, affinity='cosine', memory=memory, connectivity=None, compute_full_tree=True, linkage='complete').fit(embeddings)
     # aggloclust=AgglomerativeClustering(n_clusters=N, affinity='cosine', memory=memory, connectivity=None, compute_full_tree=True, linkage='average').fit(embeddings)
-    aggloclust=AgglomerativeClustering(n_clusters=N, affinity='precomputed', memory=memory, connectivity=None, compute_full_tree=True, linkage='average').fit(embeddings)
+    aggloclust=AgglomerativeClustering(n_clusters=N, metric='cosine', memory=memory, connectivity=None, compute_full_tree=True, linkage='average').fit(embeddings)
     # aggloclust=AgglomerativeClustering(n_clusters=N, affinity='precomputed', memory=memory, connectivity=None, compute_full_tree=True, linkage='single').fit(embeddings)
     # import ipdb; ipdb.set_trace() 
     if print_labels:
