@@ -1,9 +1,17 @@
 from sklearn.cluster import AgglomerativeClustering
-import plotly.figure_factory as ff
 import os
 # from sklearn.datasets.samples_generator import make_blobs
-import matplotlib.pyplot as plt
 import numpy as np
+
+# Optional visualization deps (not required for clustering/RTTM writing)
+try:  # pragma: no cover
+    import plotly.figure_factory as ff  # type: ignore
+except Exception:  # pragma: no cover
+    ff = None
+try:  # pragma: no cover
+    import matplotlib.pyplot as plt  # type: ignore
+except Exception:  # pragma: no cover
+    plt = None
 
 
 def labels2RTTM(labels, rttmFd, filename, stepSize=1, offset=0):

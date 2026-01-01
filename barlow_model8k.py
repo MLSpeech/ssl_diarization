@@ -2,7 +2,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import hydra
 from collections import defaultdict
 from einops import rearrange, reduce, repeat
 from einops.layers.torch import Rearrange, Reduce

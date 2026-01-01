@@ -10,7 +10,13 @@ from loguru import logger
 import torch
 import torchaudio
 import torch.nn.functional as F
-torchaudio.set_audio_backend("sox_io")
+# torchaudio backend selection is version-dependent; newer torchaudio removed set_audio_backend.
+if hasattr(torchaudio, "set_audio_backend"):
+    try:
+        torchaudio.set_audio_backend("sox_io")
+    except Exception:
+        # Fall back to torchaudio default backend if sox_io is unavailable.
+        pass
 from glob import glob
 
 

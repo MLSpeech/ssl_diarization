@@ -73,6 +73,7 @@ parser.add_argument('--VADdir3', default='/x-wing/datasets/public/callhome/nist_
                     metavar='DIR', help='path to reference rttms directory')
 parser.add_argument('--resdir3', default='shuaDataDir/barlowTwins/results8k_vicreg/callhome_neil_test_results/', type=Path,
                     metavar='DIR', help='path to reference results directory')
+
 def exclude_bias_and_norm(p):
     return p.ndim == 1
 
