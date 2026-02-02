@@ -245,9 +245,9 @@ def _cluster_precomputed(D: np.ndarray, n_spk: int) -> np.ndarray:
     from sklearn.cluster import AgglomerativeClustering
 
     try:
-        model = AgglomerativeClustering(n_clusters=int(n_spk), metric="precomputed", linkage="average")
+        model = AgglomerativeClustering(n_clusters=int(n_spk), metric="cosine", linkage="average")
     except TypeError:
-        model = AgglomerativeClustering(n_clusters=int(n_spk), affinity="precomputed", linkage="average")
+        model = AgglomerativeClustering(n_clusters=int(n_spk), affinity="cosine", linkage="average")
     return model.fit_predict(D).astype(int)
 
 
