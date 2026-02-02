@@ -16,7 +16,7 @@ This repo contains research/training scripts plus a **simple end-to-end inferenc
 
 ### Prerequisites
 
-- **Conda env** with PyTorch + torchaudio + sklearn + numpy (your env is `ssl_diar2`).
+- **Conda env** with PyTorch + torchaudio + sklearn + numpy.
 - **Kaldi binaries on PATH** (`ivector-subtract-global-mean`, `ivector-plda-scoring-dense`, `copy-feats`).
   - This repo provides `path.sh` to set that up (see below).
 - **Network access on first run** (Silero VAD is loaded via `torch.hub` and cached).
@@ -25,16 +25,13 @@ This repo contains research/training scripts plus a **simple end-to-end inferenc
 
 Run from this directory:
 
-```bash
-cd /home/shua/home/Shua/recipies/Diar/ssl_diarization
-conda activate ssl_diar2
+conda activate ssl_diar
 . ./path.sh
-```
 
 `path.sh` currently points to:
 
 ```bash
-export KALDI_ROOT=/mlspeech/programs/kaldi
+export KALDI_ROOT=/*/*/kaldi
 ```
 
 If your Kaldi lives elsewhere, edit `path.sh` accordingly.
@@ -52,7 +49,7 @@ Example (using the checkpoint + PLDA model included in this folder):
 
 ```bash
 python3 run_barlow_plda_cluster.py \
-  --audio /mlspeech/datasets/public_x_wing/callhome/nist_recognition_evaluation_wav16/niel_test/sid00sg1/data/iaaf.wav \
+  --audio Callhome/nist_recognition_evaluation_wav16/niel_test/sid00sg1/data/iaaf.wav \
   --checkpoint ./checkpoint_24.pth \
   --plda-model-dir ./iter_67_plda \
   --out-rttm ./out_rttm_iaaf/iaaf_e2e.rttm \
